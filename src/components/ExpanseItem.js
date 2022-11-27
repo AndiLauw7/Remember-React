@@ -1,5 +1,6 @@
-import "./ExpananseItem.css";
 import ExpanseDate from "./ExpanseDate";
+import "./ExpananseItem.css";
+import Card from "./Card";
 
 export default function ExpanseItem(props) {
   //   const current = new Date();
@@ -12,13 +13,13 @@ export default function ExpanseItem(props) {
   //   const exspenseAmount = 550.0;
 
   return (
-    <div className="expense-item">
+    <Card className="expense-item">
       {/* <div>Today {props.date.toISOString()}</div> */}
       <ExpanseDate date={props.date} />
       <div className="expense-item__description">
         <h2>{props.title}</h2>
       </div>
       <div className="expense-item__price">${props.amount}</div>
-    </div>
+    </Card>
   );
 }
