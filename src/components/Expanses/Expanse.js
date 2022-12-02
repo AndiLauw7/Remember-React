@@ -1,10 +1,10 @@
 import ExpanseItem from "./ExpanseItem";
 import "./Expanse.css";
-import Card from "./Card";
+import Card from "../UI/Card";
 
 export default function Expanse(props) {
   return (
-    <div className="expenses">
+    <Card className="expenses">
       <ExpanseItem
         title={props.items[0].title}
         amount={props.items[0].amount}
@@ -25,6 +25,6 @@ export default function Expanse(props) {
         amount={props.items[3].amount}
         date={props.items[3].date}
       />
-    </div>
+    </Card>
   );
 }

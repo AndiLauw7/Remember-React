@@ -1,6 +1,6 @@
 import ExpanseDate from "./ExpanseDate";
 import "./ExpananseItem.css";
-import Card from "./Card";
+import Card from "../UI/Card";
 
 export default function ExpanseItem(props) {
   //   const current = new Date();

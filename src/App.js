@@ -1,5 +1,7 @@
-import Expanse from "./components/Expanse";
-function App(props) {
+import React from "react";
+import Expanse from "./components/Expanses/Expanse";
+
+const App = (props) => {
   const expenses = [
     {
       id: "e1",
@@ -21,12 +23,21 @@ function App(props) {
       date: new Date(2021, 5, 12),
     },
   ];
+
+  // ini jsx 6
+  // return React.createElement(
+  //   "div",
+  //   {},
+  //   React.createElement("h2", {}, "Let's get started!"),
+  //   React.createElement(Expanse, { items: expenses })
+  // );
+
   return (
     <div>
       <h2>Let's get started!</h2>
       <Expanse items={expenses} />
     </div>
   );
-}
+};
 
 export default App;
