@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./ExpansesForm.css";
 
-export default function ExpansesForm() {
+export default function ExpansesForm(props) {
   // Multi state irisan(bagian) atau slice
   const [enteredTitle, setEnteredTitle] = useState("");
   const [enteredAmount, setEnteredAmount] = useState("");
@@ -56,6 +56,8 @@ export default function ExpansesForm() {
       date: new Date(enteredDate),
     };
     console.log(expanseData);
+    props.onSaveExpanseData(expanseData);
+    // Two way binding
     setEnteredAmount("");
     setEnteredDate("");
     setEnteredTitle("");

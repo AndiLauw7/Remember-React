@@ -1,9 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import Expanse from "./components/Expanses/Expanse";
 import NewExpanses from "./components/NewExpanses/NewExpanses";
 
 const App = (props) => {
-  const expenses = [
+  const Dummy_Expanses = [
     {
       id: "e1",
       title: "Toilet Paper",
@@ -42,10 +42,19 @@ const App = (props) => {
   //   React.createElement(Expanse, { items: expenses })
   // );
 
+  const [expanses, setExpanses] = useState(Dummy_Expanses);
+
+  const ExpanseHandler = (expanse) => {
+    // console.log(expanse);
+    setExpanses((prevExpanse) => {
+      return [expanse, ...prevExpanse];
+    });
+  };
+
   return (
     <div>
-      <NewExpanses />
-      <Expanse items={expenses} />
+      <NewExpanses onAddExpanse={ExpanseHandler} />
+      <Expanse items={expanses} />
     </div>
   );
 };
