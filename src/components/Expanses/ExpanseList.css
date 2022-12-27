@@ -1,0 +1,9 @@
+.expanses-list {
+    list-style: none;
+    padding: 0;
+}
+
+.expanses-list_fallback {
+    color: white;
+    text-align: center;
+}

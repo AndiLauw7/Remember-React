@@ -3,6 +3,7 @@ import "./Expanse.css";
 import Card from "../UI/Card";
 import ExpensesFilter from "./ExpanseFilter";
 import { useState } from "react";
+import ExpanseList from "./ExpanseList";
 
 export default function Expanse(props) {
   const [filteredYear, setFilteredYear] = useState("2020");
@@ -10,6 +11,27 @@ export default function Expanse(props) {
   const FilterChangeHandler = (selectedYear) => {
     setFilteredYear(selectedYear);
   };
+
+  const filteredExpanses = props.items.filter((expanses) => {
+    return expanses.date.getFullYear().toString() === filteredYear;
+  });
+
+  // Cara ke 4 di file ExpanseList
+
+  // cara ke 3
+
+  // let expenseContent = <p>No Record Founds</p>;
+
+  // if (filteredExpanses.length > 0) {
+  //   expenseContent = filteredExpanses.map((expanses) => (
+  //     <ExpanseItem
+  //       key={expanses.id}
+  //       title={expanses.title}
+  //       amount={expanses.amount}
+  //       date={expanses.date}
+  //     />
+  //   ));
+  // }
 
   return (
     <div>
@@ -19,15 +41,35 @@ export default function Expanse(props) {
           onChangeFilter={FilterChangeHandler}
         />
 
-        {props.items.map((expanses) => (
-          <>
+        {/* {expenseContent} */}
+
+        <ExpanseList items={filteredExpanses} />
+        {/* cara ke 1 */}
+        {/* {filteredExpanses.length === 0 ? (
+          <p>No Record Founds</p>
+        ) : (
+          filteredExpanses.map((expanses) => (
             <ExpanseItem
+              key={expanses.id}
               title={expanses.title}
               amount={expanses.amount}
               date={expanses.date}
             />
-          </>
-        ))}
+          ))
+        )} */}
+
+        {/* cara ke 2 */}
+        {/* {filteredExpanses.length === 0 && <p>No Record Founds</p>}
+        {filteredExpanses.length > 0 &&
+          filteredExpanses.map((expanses) => (
+            <ExpanseItem
+              key={expanses.id}
+              title={expanses.title}
+              amount={expanses.amount}
+              date={expanses.date}
+            />
+          ))} */}
+
         {/* <ExpanseItem
           title={props.items[0].title}
           amount={props.items[0].amount}
